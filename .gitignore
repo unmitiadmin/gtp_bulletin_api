@@ -1,0 +1,9 @@
+/venv
+**/__pycache__
+.pyc
+.env
+models-derived.txt
+notes.txt
+/media
+/_database_prep
+models_derived.py

@@ -1,0 +1,1 @@
+valid_admin_levels = ["region", "department", "arrondissement", "commune"]
