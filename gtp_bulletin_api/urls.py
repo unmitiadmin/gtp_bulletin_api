@@ -22,4 +22,6 @@ urlpatterns = [
     path('auth', include("app_auth.urls")),
     path('lkp', include("app_lookups.urls")),
     path('', include("app_forecast.urls")),
+    path('', include("app_current.urls")),
+    path('', include("app_historic.urls")),
 ]

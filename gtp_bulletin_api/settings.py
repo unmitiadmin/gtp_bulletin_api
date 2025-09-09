@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'app_auth',
     'app_lookups',
     'app_forecast',
+    'app_historic',
 ]
 
 MIDDLEWARE = [
