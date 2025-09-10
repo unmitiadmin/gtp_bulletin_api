@@ -24,4 +24,5 @@ urlpatterns = [
     path('', include("app_forecast.urls")),
     path('', include("app_current.urls")),
     path('', include("app_historic.urls")),
+    path('', include("app_bulletin.urls")),
 ]

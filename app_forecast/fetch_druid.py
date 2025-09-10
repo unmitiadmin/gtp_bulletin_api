@@ -195,7 +195,7 @@ def get_temperature_forecast(**kwargs):
                 result = gfs_temp(referred_date=todays_date, query_result=query_result)
                 return {"status": 1, "data": result}
     except ProgrammingError:
-        return {"status": 0, "message": "Data is unavailable at the source"}
+        return {"status": 0, "message": "Issue with SQL query, please check"}
     except ConnectionError:
         return {"status": 0, "message": f"Couldn't connect to database ({data_src_table}), please try again"}
     except (IndexError, KeyError):
@@ -226,7 +226,7 @@ def get_humidity_forecast(**kwargs):
                 result = gfs_rh(referred_date=todays_date, query_result=query_result)
                 return {"status": 1, "data": result}
     except ProgrammingError:
-        return {"status": 0, "message": "Data is unavailable at the source"}
+        return {"status": 0, "message": "Issue with SQL query, please check"}
     except ConnectionError:
         return {"status": 0, "message": f"Couldn't connect to database ({data_src_table}), please try again"}
     except (IndexError, KeyError):

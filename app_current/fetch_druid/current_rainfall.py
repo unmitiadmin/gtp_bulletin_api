@@ -148,7 +148,7 @@ def get_current_monthly_rainfall(**kwargs):
             }
         }
     except ProgrammingError:
-        return {"status": 0, "message": "Data is unavailable at the source"}
+        return {"status": 0, "message": "Issue with SQL query, please check"}
     except ConnectionError:
         return {"status": 0, "message": f"Couldn't connect to database ({data_src_table}), please try again"}
 
@@ -264,7 +264,7 @@ def get_current_dekadal_rainfall(**kwargs):
             }
         }
     except ProgrammingError:
-        return {"status": 0, "message": "Data is unavailable at the source"}
+        return {"status": 0, "message": "Issue with SQL query, please check"}
     except ConnectionError:
         return {"status": 0, "message": f"Couldn't connect to database ({data_src_table}), please try again"}
 
@@ -380,7 +380,7 @@ def get_current_weekly_rainfall(**kwargs):
             }
         }
     except ProgrammingError:
-        return {"status": 0, "message": "Data is unavailable at the source"}
+        return {"status": 0, "message": "Issue with SQL query, please check"}
     except ConnectionError:
         return {"status": 0, "message": f"Couldn't connect to database ({data_src_table}), please try again"}
 
@@ -495,6 +495,6 @@ def get_current_daily_rainfall(**kwargs):
             }
         }
     except ProgrammingError:
-        return {"status": 0, "message": "Data is unavailable at the source"}
+        return {"status": 0, "message": "Issue with SQL query, please check"}
     except ConnectionError:
         return {"status": 0, "message": f"Couldn't connect to database ({data_src_table}), please try again"}

@@ -1,0 +1,34 @@
+{
+    "county_id": null,
+    "subcounty_id": null,
+    "ward_id": null,
+
+    "section": {
+        "agriculture": {
+            "agriculture": true,
+            "market": true,
+            "satellite_imagery": true
+        },
+        "climate_and_weather": {
+            "forecast": true,
+            "current": false,
+            "historic": false
+        },
+        "soils": {},
+        "livestock": {},
+        "water_resources": {}
+    },
+
+    "tabs_inputs": {
+        "agriculture": {
+            "price_per_collection_market": {
+                "year": null,
+                "product": null,
+                "collection_market": null
+            }
+        },
+        "climate_and_weather": {
+
+        }
+    }
+}

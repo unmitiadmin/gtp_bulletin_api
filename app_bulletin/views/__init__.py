@@ -1,0 +1,2 @@
+from .bulletin_template import BulletinTemplateView
+from .bulletin_report import BulletinReportView

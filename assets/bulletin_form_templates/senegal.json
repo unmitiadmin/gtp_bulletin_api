@@ -1,0 +1,2012 @@
+{
+    "region_id": null,
+    "department_id": null,
+    "arrondissement_id": null,
+    "commune_id": null,
+    "isat_village_id": null,
+    "section": {
+      "agriculture" :{
+        "active": true,
+        "section_id": 1,
+        "label": "Agriculture",
+        "selected": "false",
+        "dataSources": [
+          {
+            "label": "Agriculture",
+            "selected": "false",
+            "dataSources": [
+              {
+                "label": "opendataforafrica",
+                "selected": false,
+                "api_route": "agriculture_opendataforafrica",
+                "payLoad": {
+                },
+                "dataInputs":[
+                    {
+                      "source_key": "year",
+                      "label": "Year",
+                      "dropdown": "years",
+                      "type": "select",
+                      "keyName": "year"
+                    }
+                  ] 
+              }
+            ]
+          },
+          {
+            "active": false,
+            "label": "Market",
+            "selected": "false",
+            "dataSources": [
+              {
+                "label": "Prices per Collection Market",
+                "selected": false
+              },
+              {
+                "label": "Supply of Collection Markets",
+                "selected": false
+              },
+              {
+                "label": "Location of Collection Markets",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "active": false,
+            "label": "Satellite Imagery",
+            "selected": "false",
+            "dataSources": [
+              { "label": "Vegetation Condition Index", "selected": false },
+              { "label": "Vegetation Health Index", "selected": false },
+              { "label": "Agricultural Stress Index (Cropland-Season1)", "selected": false },
+              { "label": "Agricultural Stress Index (Cropland-Season2)", "selected": false },
+              { "label": "Agricultural Stress Index (Grassland-Season1)", "selected": false },
+              { "label": "Agricultural Stress Index (Grassland-Season2)", "selected": false },
+              { "label": "Drought Intensity (Cropland-Season1)", "selected": false },
+              { "label": "Drought Intensity (Cropland-Season2)", "selected": false },
+              { "label": "Drought Intensity (Grassland-Season1)", "selected": false },
+              { "label": "Drought Intensity (Grassland-Season2)", "selected": false },
+              { "label": "Mean Vegetation Health Index (Cropland-Season1)", "selected": false },
+              { "label": "Mean Vegetation Health Index (Cropland-Season2)", "selected": false },
+              { "label": "Mean Vegetation Health Index (Grassland-Season1)", "selected": false },
+              { "label": "Mean Vegetation Health Index (Grassland-Season2)", "selected": false }
+            ]
+          }
+        ]
+      },
+        "climate": {
+          "active": true,
+          "source_key": "climate_weather",
+          "label": "Climate and Weather",
+          "selected": "false",
+          "dataSources": [
+            {
+              "source_key": "forecast",
+              "label": "FORECAST",
+              "selected": false,
+              "dataSources": [
+                {
+                  "source_key": "forecast_rainfall",
+                  "label": "Rainfall",
+                  "selected": false,
+                  "dataSources": [
+                    {
+                      "source_key": "short_range",
+                      "label": "Short Range",
+                      "dataSources": [
+                        { "source_id": "5","api_route": "forecast_rainfall","payLoad":{"communeId":null,"dataSrcId":null},"label": "GFS", "selected": false },
+                        { "source_id": "6","api_route": "forecast_rainfall","payLoad":{"communeId":null,"dataSrcId":null},"label": "ANACIM 3-day", "selected": false }
+                      ]
+                    },
+                    {
+                      "source_key": "medium_range",
+                      "label": "Medium Range",
+                      "dataSources": [
+                        { "source_id": "7","api_route": "forecast_rainfall","payLoad":{"communeId":null,"dataSrcId":null},"label": "IRI-CFS", "selected": false },
+                        { "source_id": "8","api_route": "forecast_rainfall","payLoad":{"communeId":null,"dataSrcId":null},"label": "IRI-ESRL", "selected": false },
+                        { "source_id": "9","api_route": "forecast_rainfall","payLoad":{"communeId":null,"dataSrcId":null},"label": "IRI-GFS", "selected": false },
+                        { "source_id": "11","api_route": "forecast_rainfall","payLoad":{"communeId":null,"dataSrcId":null},"label": "ANACIM", "selected": false }
+                      ]
+                    },
+                    {
+                      "source_key": "seasonal",
+                      "label": "Seasonal",
+                      "dataSources": [
+                        { "source_id": "10","api_route": "forecast_rainfall","payLoad":{"communeId":null,"dataSrcId":null},"label": "IRI-NMME", "selected": false },
+                        { "source_id": "12","api_route": "forecast_rainfall","payLoad":{"communeId":null,"dataSrcId":null},"label": "ANACIM", "selected": false }
+                      ]
+                    }
+                  ]
+                },
+                { "source_key": "forecast_temp","label": "Temperature", "selected": false, "dataSources": [{ "source_id": "5","api_route": "forecast_temperature","payLoad":{"communeId":null,"dataSrcId":null},"label": "GFS", "selected": false }] },
+                { "source_key": "forecast_humidity","label": "Humidity", "selected": false, "dataSources": [{ "source_id": "5","api_route": "forecast_humidity","payLoad":{"communeId":null,"dataSrcId":null},"label": "GFS", "selected": false }] }
+              ]
+            },
+            {
+              "source_key": "current",
+              "label": "CURRENT",
+              "selected": false,
+              "dataSources": [
+                {
+                  "source_key": "current_rainfall",
+                  "label": "Rainfall",
+                  "selected": false,
+                  "dataSources": [
+                    { 
+                      "active": false,
+                      "source_id": "1",
+                      "label": "ANACIM-ENACTS",
+                      "selected": false,
+                      "dataSources": [
+                        {
+                          "source_key": "months",
+                          "label": "Months",
+                          "api_route": "current_monthly_rainfall",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromMonth",
+                                "label": "From Month",
+                                "dropdown": "months",
+                                "type": "select",
+                                "keyName": "month"
+                              },
+                              {
+                                "source_key": "toMonth",
+                                "label": "To Month",
+                                "dropdown": "months",
+                                "type": "select",
+                                "keyName": "month"
+                              }
+                            ]
+                        },
+                        {
+                          "source_key": "dekads",
+                          "label": "Dekads",
+                          "api_route": "current_dekadal_rainfall",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromDekad",
+                                "label": "From Dekad",
+                                "dropdown": "dekads",
+                                "type": "select",
+                                "keyName": "dekad",
+                                "keyID": "dekad"
+                              },
+                              {
+                                "source_key": "toDekad",
+                                "label": "To Dekad",
+                                "dropdown": "dekads",
+                                "type": "select",
+                                "keyName": "dekad",
+                                "keyID": "dekad"
+                              }
+                            ]
+                        },
+                        {
+                          "source_key": "weeks",
+                          "label": "Weeks",
+                          "api_route": "current_weekly_rainfall",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromWeek",
+                                "label": "From Week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week"
+                              },
+                              {
+                                "source_key": "toWeek",
+                                "label": "To Week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week"
+                              }
+                            ]
+                        },
+                        {
+                          "source_key": "date",
+                          "label": "Date",
+                          "api_route": "current_daily_rainfall",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromDate",
+                                "label": "From Date",
+                                "type": "date"
+                              },
+                              {
+                                "source_key": "toDate",
+                                "label": "To Date",
+                                "type": "date"
+                              }
+                            ]
+                        }
+                      ]
+                    },
+                    { 
+                      "source_id": "3",
+                      "label": "CHIRPS",
+                      "selected": false,
+                      "dataSources": [
+                        {
+                          "source_key": "months",
+                          "label": "Months",
+                          "api_route": "current_monthly_rainfall",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromMonth",
+                                "label": "From Month",
+                                "dropdown": "months",
+                                "type": "select",
+                                "keyName": "month"
+                              },
+                              {
+                                "source_key": "toMonth",
+                                "label": "To Month",
+                                "dropdown": "months",
+                                "type": "select",
+                                "keyName": "month"
+                              }
+                            ]
+                        },
+                        {
+                          "source_key": "dekads",
+                          "label": "Dekads",
+                          "api_route": "current_dekadal_rainfall",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromDekad",
+                                "label": "From Dekad",
+                                "dropdown": "dekads",
+                                "type": "select",
+                                "keyName": "dekad",
+                                "keyID": "dekad"
+                              },
+                              {
+                                "source_key": "toDekad",
+                                "label": "To Dekad",
+                                "dropdown": "dekads",
+                                "type": "select",
+                                "keyName": "dekad",
+                                "keyID": "dekad"
+                              }
+                            ]
+                        },
+                        {
+                          "source_key": "weeks",
+                          "label": "Weeks",
+                          "api_route": "current_weekly_rainfall",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromWeek",
+                                "label": "From Week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week"
+                              },
+                              {
+                                "source_key": "toWeek",
+                                "label": "To Week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week"
+                              }
+                            ]
+                        },
+                        {
+                          "source_key": "date",
+                          "label": "Date",
+                          "api_route": "current_daily_rainfall",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromDate",
+                                "label": "From Date",
+                                "type": "date"
+                              },
+                              {
+                                "source_key": "toDate",
+                                "label": "To Date",
+                                "type": "date"
+                              }
+                            ]
+                        }
+                      ]
+                    },
+                    { 
+                      "source_id": "2",
+                      "label": "TAMSAT",
+                       "selected": false,
+                       "dataSources": [
+                         {
+                           "source_key": "months",
+                           "label": "Months",
+                           "api_route": "current_monthly_rainfall",
+                           "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                           "dataInputs":[
+                               {
+                                 "source_key": "fromMonth",
+                                 "label": "From Month",
+                                 "dropdown": "months",
+                                 "type": "select",
+                                 "keyName": "month"
+                               },
+                               {
+                                 "source_key": "toMonth",
+                                 "label": "To Month",
+                                 "dropdown": "months",
+                                 "type": "select",
+                                 "keyName": "month"
+                               }
+                             ]
+                         },
+                         {
+                           "source_key": "dekads",
+                           "label": "Dekads",
+                           "api_route": "current_dekadal_rainfall",
+                           "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                           "dataInputs":[
+                               {
+                                 "source_key": "fromDekad",
+                                 "label": "From Dekad",
+                                 "dropdown": "dekads",
+                                 "type": "select",
+                                 "keyName": "dekad",
+                                 "keyID": "dekad"
+                               },
+                               {
+                                 "source_key": "toDekad",
+                                 "label": "To Dekad",
+                                 "dropdown": "dekads",
+                                 "type": "select",
+                                 "keyName": "dekad",
+                                 "keyID": "dekad"
+                               }
+                             ]
+                         },
+                         {
+                           "source_key": "weeks",
+                           "label": "Weeks",
+                           "api_route": "current_weekly_rainfall",
+                           "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                           "dataInputs":[
+                               {
+                                 "source_key": "fromWeek",
+                                 "label": "From Week",
+                                 "dropdown": "weeks",
+                                 "type": "select",
+                                 "keyName": "week"
+                               },
+                               {
+                                 "source_key": "toWeek",
+                                 "label": "To Week",
+                                 "dropdown": "weeks",
+                                 "type": "select",
+                                 "keyName": "week"
+                               }
+                             ]
+                         },
+                         {
+                           "source_key": "date",
+                           "label": "Date",
+                           "api_route": "current_daily_rainfall",
+                           "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                           "dataInputs":[
+                               {
+                                 "source_key": "fromDate",
+                                 "label": "From Date",
+                                 "type": "date"
+                               },
+                               {
+                                 "source_key": "toDate",
+                                 "label": "To Date",
+                                 "type": "date"
+                               }
+                             ]
+                         }
+                       ]
+                    },
+                    { 
+                      "source_id": "4",
+                      "label": "ARC2",
+                      "selected": false,
+                      "dataSources": [
+                        {
+                          "source_key": "months",
+                          "label": "Months",
+                          "api_route": "current_monthly_rainfall",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromMonth",
+                                "label": "From Month",
+                                "dropdown": "months",
+                                "type": "select",
+                                "keyName": "month"
+                              },
+                              {
+                                "source_key": "toMonth",
+                                "label": "To Month",
+                                "dropdown": "months",
+                                "type": "select",
+                                "keyName": "month"
+                              }
+                            ]
+                        },
+                        {
+                          "source_key": "dekads",
+                          "label": "Dekads",
+                          "api_route": "current_dekadal_rainfall",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromDekad",
+                                "label": "From Dekad",
+                                "dropdown": "dekads",
+                                "type": "select",
+                                "keyName": "dekad",
+                                "keyID": "dekad"
+                              },
+                              {
+                                "source_key": "toDekad",
+                                "label": "To Dekad",
+                                "dropdown": "dekads",
+                                "type": "select",
+                                "keyName": "dekad",
+                                "keyID": "dekad"
+                              }
+                            ]
+                        },
+                        {
+                          "source_key": "weeks",
+                          "label": "Weeks",
+                          "api_route": "current_weekly_rainfall",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromWeek",
+                                "label": "From Week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week"
+                              },
+                              {
+                                "source_key": "toWeek",
+                                "label": "To Week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week"
+                              }
+                            ]
+                        },
+                        {
+                          "source_key": "date",
+                          "label": "Date",
+                          "api_route": "current_daily_rainfall",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"fromDate":null,"toDate":null},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromDate",
+                                "label": "From Date",
+                                "type": "date"
+                              },
+                              {
+                                "source_key": "toDate",
+                                "label": "To Date",
+                                "type": "date"
+                              }
+                            ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "active": false,
+                  "source_key": "current_temp",
+                  "label": "Temperature",
+                  "selected": false,
+                  "dataSources": [{ "source_id": "1","label": "ANACIM-ENACTS", "selected": false }]
+                },
+                {
+                  "active": false,
+                  "source_key": "current_humidity",
+                  "label": "Relative Humidity",
+                  "selected": false,
+                  "dataSources": [{ "source_id": "1","label": "ANACIM-ENACTS", "selected": false }]
+                },
+                {
+                  "active": false,
+                  "source_key": "current_wind",
+                  "label": "Wind Speed",
+                  "selected": false,
+                  "dataSources": [{ "source_id": "1","label": "ANACIM-ENACTS", "selected": false }]
+                }
+              ]
+            },
+            {
+              "source_key": "historic",
+              "label": "HISTORIC",
+              "selected": false,
+              "dataSources": [
+                {
+                  "source_key": "historic_rainfall",
+                  "label": "Rainfall",
+                  "selected": false,
+                  "dataSources": [
+                    { 
+                      "source_id": "1",
+                      "label": "ANACIM-ENACTS",
+                      "selected": false,
+                      "dataSources": [
+                        { 
+                          "source_key": "how_much",
+                          "label": "How Much",
+                          "selected": false, 
+                          "dataSources": [
+                            {
+                              "source_key": "months",
+                              "label": "Months",
+                              "api_route": "historic_yearly_rainfall",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"rfGte": 0, "rfLt": 0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromMonth",
+                                    "label": "From Month",
+                                    "dropdown": "months",
+                                    "type": "select",
+                                    "keyName": "month"
+                                  },
+                                  {
+                                    "source_key": "toMonth",
+                                    "label": "To Month",
+                                    "dropdown": "months",
+                                    "type": "select",
+                                    "keyName": "month"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "Annual Rainfall (mm) More Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Annual Rainfall (mm) Less Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "yearType",
+                                    "label": "Year Type",
+                                    "dropdown": "yearTypes",
+                                    "type": "select",
+                                    "keyName": "yearType"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "dekads",
+                              "label": "Dekads",
+                              "api_route": "historic_yearly_rainfall",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"rfGte": 0, "rfLt": 0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromDekad",
+                                    "label": "From Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "toDekad",
+                                    "label": "To Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "Annual Rainfall (mm) More Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Annual Rainfall (mm) Less Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "yearType",
+                                    "label": "Year Type",
+                                    "dropdown": "yearTypes",
+                                    "type": "select",
+                                    "keyName": "yearType"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "weeks",
+                              "label": "Weeks",
+                              "api_route": "historic_yearly_rainfall",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"rfGte": 0, "rfLt": 0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromWeek",
+                                    "label": "From Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "toWeek",
+                                    "label": "To Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "Annual Rainfall (mm) More Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Annual Rainfall (mm) Less Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "yearType",
+                                    "label": "Year Type",
+                                    "dropdown": "yearTypes",
+                                    "type": "select",
+                                    "keyName": "yearType"
+                                  }
+                               ]
+                            }
+                          ]
+                        },
+                        {  
+                          "source_key": "how_dry",
+                          "label": "How Dry", 
+                          "selected": false, 
+                          "dataSources": [
+                            {
+                              "source_key": "dekads",
+                              "label": "Dekads",
+                              "api_route": "historic_dry_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromDekad",
+                                    "label": "From Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "toDekad",
+                                    "label": "To Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Less Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "weeks",
+                              "label": "Weeks",
+                              "api_route": "historic_dry_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromWeek",
+                                    "label": "From Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "toWeek",
+                                    "label": "To Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Less Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            }
+                          ]
+                        },
+                        { 
+                          "source_key": "how_wet",
+                          "label": "How Wet", 
+                          "selected": false, 
+                          "dataSources": [
+                            {
+                              "source_key": "dekads",
+                              "label": "Dekads",
+                              "api_route": "historic_wet_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromDekad",
+                                    "label": "From Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "toDekad",
+                                    "label": "To Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "More Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "weeks",
+                              "label": "Weeks",
+                              "api_route": "historic_wet_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromWeek",
+                                    "label": "From Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "toWeek",
+                                    "label": "To Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "More Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            }
+                          ]
+                        },
+                        { 
+                          "source_key": "crop_stress",
+                          "label": "Crop Stress", 
+                          "selected": false,
+                          "api_route": "historic_crop_stress",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                          "dataInputs":[
+                              {
+                                "source_key": "cropId",
+                                "label": "Crop",
+                                "dropdown": "crops",
+                                "type": "select",
+                                "keyName": "crop",
+                                "keyValue": "cropID",
+                                "required": true
+                              },
+                              {
+                                "source_key": "fromWeek",
+                                "label": "Sow the starting week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week",
+                                "required": true
+                              },
+                              {
+                                "source_key": "rfLt",
+                                "label": "Weekly rainfall (mm) less than",
+                                "type": "number",
+                                "required": true
+                              }
+                           ]
+                        }
+                      ]
+                    },
+                    { 
+                      "source_id": "3",
+                      "label": "CHIRPS",
+                      "selected": false,
+                      "dataSources": [
+                        { 
+                          "source_key": "how_much",
+                          "label": "How Much",
+                          "selected": false, 
+                          "dataSources": [
+                            {
+                              "source_key": "months",
+                              "label": "Months",
+                              "api_route": "historic_yearly_rainfall",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"rfGte": 0, "rfLt": 0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromMonth",
+                                    "label": "From Month",
+                                    "dropdown": "months",
+                                    "type": "select",
+                                    "keyName": "month"
+                                  },
+                                  {
+                                    "source_key": "toMonth",
+                                    "label": "To Month",
+                                    "dropdown": "months",
+                                    "type": "select",
+                                    "keyName": "month"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "Annual Rainfall (mm) More Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Annual Rainfall (mm) Less Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "yearType",
+                                    "label": "Year Type",
+                                    "dropdown": "yearTypes",
+                                    "type": "select",
+                                    "keyName": "yearType"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "dekads",
+                              "label": "Dekads",
+                              "api_route": "historic_yearly_rainfall",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"rfGte": 0, "rfLt": 0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromDekad",
+                                    "label": "From Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "toDekad",
+                                    "label": "To Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "Annual Rainfall (mm) More Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Annual Rainfall (mm) Less Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "yearType",
+                                    "label": "Year Type",
+                                    "dropdown": "yearTypes",
+                                    "type": "select",
+                                    "keyName": "yearType"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "weeks",
+                              "label": "Weeks",
+                              "api_route": "historic_yearly_rainfall",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"rfGte": 0, "rfLt": 0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromWeek",
+                                    "label": "From Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "toWeek",
+                                    "label": "To Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "Annual Rainfall (mm) More Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Annual Rainfall (mm) Less Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "yearType",
+                                    "label": "Year Type",
+                                    "dropdown": "yearTypes",
+                                    "type": "select",
+                                    "keyName": "yearType"
+                                  }
+                               ]
+                            }
+                          ]
+                        },
+                        {  
+                          "source_key": "how_dry",
+                          "label": "How Dry", 
+                          "selected": false, 
+                          "dataSources": [
+                            {
+                              "source_key": "dekads",
+                              "label": "Dekads",
+                              "api_route": "historic_dry_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromDekad",
+                                    "label": "From Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "toDekad",
+                                    "label": "To Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Less Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "weeks",
+                              "label": "Weeks",
+                              "api_route": "historic_dry_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromWeek",
+                                    "label": "From Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "toWeek",
+                                    "label": "To Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Less Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            }
+                          ]
+                        },
+                        { 
+                          "source_key": "how_wet",
+                          "label": "How Wet", 
+                          "selected": false, 
+                          "dataSources": [
+                            {
+                              "source_key": "dekads",
+                              "label": "Dekads",
+                              "api_route": "historic_wet_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromDekad",
+                                    "label": "From Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "toDekad",
+                                    "label": "To Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "More Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "weeks",
+                              "label": "Weeks",
+                              "api_route": "historic_wet_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromWeek",
+                                    "label": "From Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "toWeek",
+                                    "label": "To Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "More Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            }
+                          ]
+                        },
+                        { 
+                          "source_key": "crop_stress",
+                          "label": "Crop Stress", 
+                          "selected": false,
+                          "api_route": "historic_crop_stress",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                          "dataInputs":[
+                              {
+                                "source_key": "cropId",
+                                "label": "Crop",
+                                "dropdown": "crops",
+                                "type": "select",
+                                "keyName": "crop",
+                                "keyValue": "cropID",
+                                "required": true
+                              },
+                              {
+                                "source_key": "fromWeek",
+                                "label": "Sow the starting week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week",
+                                "required": true
+                              },
+                              {
+                                "source_key": "rfLt",
+                                "label": "Weekly rainfall (mm) less than",
+                                "type": "number",
+                                "required": true
+                              }
+                           ]
+                        }
+                      ]
+                    },
+                    { 
+                      "source_id": "2",
+                      "label": "TAMSAT",
+                      "selected": false,
+                      "dataSources": [
+                        { 
+                          "source_key": "how_much",
+                          "label": "How Much",
+                          "selected": false, 
+                          "dataSources": [
+                            {
+                              "source_key": "months",
+                              "label": "Months",
+                              "api_route": "historic_yearly_rainfall",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"rfGte": 0, "rfLt": 0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromMonth",
+                                    "label": "From Month",
+                                    "dropdown": "months",
+                                    "type": "select",
+                                    "keyName": "month"
+                                  },
+                                  {
+                                    "source_key": "toMonth",
+                                    "label": "To Month",
+                                    "dropdown": "months",
+                                    "type": "select",
+                                    "keyName": "month"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "Annual Rainfall (mm) More Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Annual Rainfall (mm) Less Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "yearType",
+                                    "label": "Year Type",
+                                    "dropdown": "yearTypes",
+                                    "type": "select",
+                                    "keyName": "yearType"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "dekads",
+                              "label": "Dekads",
+                              "api_route": "historic_yearly_rainfall",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"rfGte": 0, "rfLt": 0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromDekad",
+                                    "label": "From Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "toDekad",
+                                    "label": "To Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "Annual Rainfall (mm) More Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Annual Rainfall (mm) Less Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "yearType",
+                                    "label": "Year Type",
+                                    "dropdown": "yearTypes",
+                                    "type": "select",
+                                    "keyName": "yearType"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "weeks",
+                              "label": "Weeks",
+                              "api_route": "historic_yearly_rainfall",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"rfGte": 0, "rfLt": 0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromWeek",
+                                    "label": "From Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "toWeek",
+                                    "label": "To Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "Annual Rainfall (mm) More Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Annual Rainfall (mm) Less Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "yearType",
+                                    "label": "Year Type",
+                                    "dropdown": "yearTypes",
+                                    "type": "select",
+                                    "keyName": "yearType"
+                                  }
+                               ]
+                            }
+                          ]
+                        },
+                        {  
+                          "source_key": "how_dry",
+                          "label": "How Dry", 
+                          "selected": false, 
+                          "dataSources": [
+                            {
+                              "source_key": "dekads",
+                              "label": "Dekads",
+                              "api_route": "historic_dry_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromDekad",
+                                    "label": "From Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "toDekad",
+                                    "label": "To Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Less Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "weeks",
+                              "label": "Weeks",
+                              "api_route": "historic_dry_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromWeek",
+                                    "label": "From Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "toWeek",
+                                    "label": "To Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Less Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            }
+                          ]
+                        },
+                        { 
+                          "source_key": "how_wet",
+                          "label": "How Wet", 
+                          "selected": false, 
+                          "dataSources": [
+                            {
+                              "source_key": "dekads",
+                              "label": "Dekads",
+                              "api_route": "historic_wet_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromDekad",
+                                    "label": "From Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "toDekad",
+                                    "label": "To Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "More Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "weeks",
+                              "label": "Weeks",
+                              "api_route": "historic_wet_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromWeek",
+                                    "label": "From Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "toWeek",
+                                    "label": "To Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "More Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            }
+                          ]
+                        },
+                        { 
+                          "source_key": "crop_stress",
+                          "label": "Crop Stress", 
+                          "selected": false,
+                          "api_route": "historic_crop_stress",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                          "dataInputs":[
+                              {
+                                "source_key": "cropId",
+                                "label": "Crop",
+                                "dropdown": "crops",
+                                "type": "select",
+                                "keyName": "crop",
+                                "keyValue": "cropID",
+                                "required": true
+                              },
+                              {
+                                "source_key": "fromWeek",
+                                "label": "Sow the starting week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week",
+                                "required": true
+                              },
+                              {
+                                "source_key": "rfLt",
+                                "label": "Weekly rainfall (mm) less than",
+                                "type": "number",
+                                "required": true
+                              }
+                           ]
+                        }
+                      ]
+                    },
+                    { 
+                      "source_id": "4",
+                      "label": "ARC2",
+                      "selected": false,
+                      "dataSources": [
+                        { 
+                          "source_key": "how_much",
+                          "label": "How Much",
+                          "selected": false, 
+                          "dataSources": [
+                            {
+                              "source_key": "months",
+                              "label": "Months",
+                              "api_route": "historic_yearly_rainfall",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"rfGte": 0, "rfLt": 0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromMonth",
+                                    "label": "From Month",
+                                    "dropdown": "months",
+                                    "type": "select",
+                                    "keyName": "month"
+                                  },
+                                  {
+                                    "source_key": "toMonth",
+                                    "label": "To Month",
+                                    "dropdown": "months",
+                                    "type": "select",
+                                    "keyName": "month"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "Annual Rainfall (mm) More Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Annual Rainfall (mm) Less Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "yearType",
+                                    "label": "Year Type",
+                                    "dropdown": "yearTypes",
+                                    "type": "select",
+                                    "keyName": "yearType"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "dekads",
+                              "label": "Dekads",
+                              "api_route": "historic_yearly_rainfall",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"rfGte": 0, "rfLt": 0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromDekad",
+                                    "label": "From Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "toDekad",
+                                    "label": "To Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "Annual Rainfall (mm) More Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Annual Rainfall (mm) Less Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "yearType",
+                                    "label": "Year Type",
+                                    "dropdown": "yearTypes",
+                                    "type": "select",
+                                    "keyName": "yearType"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "weeks",
+                              "label": "Weeks",
+                              "api_route": "historic_yearly_rainfall",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0,"rfGte": 0, "rfLt": 0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromWeek",
+                                    "label": "From Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "toWeek",
+                                    "label": "To Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "Annual Rainfall (mm) More Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Annual Rainfall (mm) Less Than",
+                                    "type": "number"
+                                  },
+                                  {
+                                    "source_key": "yearType",
+                                    "label": "Year Type",
+                                    "dropdown": "yearTypes",
+                                    "type": "select",
+                                    "keyName": "yearType"
+                                  }
+                               ]
+                            }
+                          ]
+                        },
+                        {  
+                          "source_key": "how_dry",
+                          "label": "How Dry", 
+                          "selected": false, 
+                          "dataSources": [
+                            {
+                              "source_key": "dekads",
+                              "label": "Dekads",
+                              "api_route": "historic_dry_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromDekad",
+                                    "label": "From Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "toDekad",
+                                    "label": "To Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Less Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "weeks",
+                              "label": "Weeks",
+                              "api_route": "historic_dry_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromWeek",
+                                    "label": "From Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "toWeek",
+                                    "label": "To Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "rfLt",
+                                    "label": "Less Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            }
+                          ]
+                        },
+                        { 
+                          "source_key": "how_wet",
+                          "label": "How Wet", 
+                          "selected": false, 
+                          "dataSources": [
+                            {
+                              "source_key": "dekads",
+                              "label": "Dekads",
+                              "api_route": "historic_wet_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromDekad",
+                                    "label": "From Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "toDekad",
+                                    "label": "To Dekad",
+                                    "dropdown": "dekads",
+                                    "type": "select",
+                                    "keyName": "dekad",
+                                    "keyID": "dekad"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "More Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            },
+                            {
+                              "source_key": "weeks",
+                              "label": "Weeks",
+                              "api_route": "historic_wet_spells",
+                              "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                              "dataInputs":[
+                                  {
+                                    "source_key": "fromWeek",
+                                    "label": "From Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "toWeek",
+                                    "label": "To Week",
+                                    "dropdown": "weeks",
+                                    "type": "select",
+                                    "keyName": "week"
+                                  },
+                                  {
+                                    "source_key": "rfGte",
+                                    "label": "More Than",
+                                    "type": "number"
+                                  }
+                               ]
+                            }
+                          ]
+                        },
+                        { 
+                          "source_key": "crop_stress",
+                          "label": "Crop Stress", 
+                          "selected": false,
+                          "api_route": "historic_crop_stress",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                          "dataInputs":[
+                              {
+                                "source_key": "cropId",
+                                "label": "Crop",
+                                "dropdown": "crops",
+                                "type": "select",
+                                "keyName": "crop",
+                                "keyValue": "cropID",
+                                "required": true
+                              },
+                              {
+                                "source_key": "fromWeek",
+                                "label": "Sow the starting week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week",
+                                "required": true
+                              },
+                              {
+                                "source_key": "rfLt",
+                                "label": "Weekly rainfall (mm) less than",
+                                "type": "number",
+                                "required": true
+                              }
+                           ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                { 
+                  "source_key": "historic_temp",
+                  "label": "Temperature", 
+                  "selected": false, 
+                  "dataSources": [
+                    { 
+                      "source_id": "1",
+                      "label": "ANACIM-ENACTS",
+                      "selected": false,
+                      "dataSources": [
+                        {
+                          "source_key": "months",
+                          "label": "Months",
+                          "api_route": "historic_yearly_temperature",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromMonth",
+                                "label": "From Month",
+                                "dropdown": "months",
+                                "type": "select",
+                                "keyName": "month"
+                              },
+                              {
+                                "source_key": "toMonth",
+                                "label": "To Month",
+                                "dropdown": "months",
+                                "type": "select",
+                                "keyName": "month"
+                              }
+                           ]
+                        },
+                        {
+                          "source_key": "dekads",
+                          "label": "Dekads",
+                          "api_route": "historic_yearly_temperature",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromDekad",
+                                "label": "From Dekad",
+                                "dropdown": "dekads",
+                                "type": "select",
+                                "keyName": "dekad",
+                                "keyID": "dekad"
+                              },
+                              {
+                                "source_key": "toDekad",
+                                "label": "To Dekad",
+                                "dropdown": "dekads",
+                                "type": "select",
+                                "keyName": "dekad",
+                                "keyID": "dekad"
+                              }
+                           ]
+                        },
+                        {
+                          "source_key": "weeks",
+                          "label": "Weeks",
+                          "api_route": "historic_yearly_temperature",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromWeek",
+                                "label": "From Week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week"
+                              },
+                              {
+                                "source_key": "toWeek",
+                                "label": "To Week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week"
+                              }
+                           ]
+                        }
+                      ]
+                     }
+                    ] 
+                },
+                { 
+                  "source_key": "historic_humidity",
+                  "label": "Relative Humidity", 
+                  "selected": false, 
+                  "dataSources": [
+                    { 
+                      "source_id": "1",
+                      "label": "ANACIM-ENACTS",
+                      "selected": false,
+                      "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                      "dataSources": [
+                        {
+                          "source_key": "months",
+                          "label": "Months",
+                          "api_route": "historic_yearly_rh",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromMonth",
+                                "label": "From Month",
+                                "dropdown": "months",
+                                "type": "select",
+                                "keyName": "month"
+                              },
+                              {
+                                "source_key": "toMonth",
+                                "label": "To Month",
+                                "dropdown": "months",
+                                "type": "select",
+                                "keyName": "month"
+                              }
+                           ]
+                        },
+                        {
+                          "source_key": "dekads",
+                          "label": "Dekads",
+                          "api_route": "historic_yearly_rh",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromDekad",
+                                "label": "From Dekad",
+                                "dropdown": "dekads",
+                                "type": "select",
+                                "keyName": "dekad",
+                                "keyID": "dekad"
+                              },
+                              {
+                                "source_key": "toDekad",
+                                "label": "To Dekad",
+                                "dropdown": "dekads",
+                                "type": "select",
+                                "keyName": "dekad",
+                                "keyID": "dekad"
+                              }
+                           ]
+                        },
+                        {
+                          "source_key": "weeks",
+                          "label": "Weeks",
+                          "api_route": "historic_yearly_rh",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromWeek",
+                                "label": "From Week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week"
+                              },
+                              {
+                                "source_key": "toWeek",
+                                "label": "To Week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week"
+                              }
+                           ]
+                        }
+                      ]
+                    }
+                  ] 
+                },
+                { 
+                  "source_key": "historic_wind",
+                  "label": "Wind Speed", 
+                  "selected": false, 
+                  "dataSources": [
+                    { 
+                      "source_id": "1",
+                      "label": "ANACIM-ENACTS",
+                      "selected": false,
+                      "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                      "dataSources": [
+                        {
+                          "source_key": "months",
+                          "label": "Months",
+                          "api_route": "historic_yearly_windspeed",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromMonth",
+                                "label": "From Month",
+                                "dropdown": "months",
+                                "type": "select",
+                                "keyName": "month"
+                              },
+                              {
+                                "source_key": "toMonth",
+                                "label": "To Month",
+                                "dropdown": "months",
+                                "type": "select",
+                                "keyName": "month"
+                              }
+                           ]
+                        },
+                        {
+                          "source_key": "dekads",
+                          "label": "Dekads",
+                          "api_route": "historic_yearly_windspeed",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromDekad",
+                                "label": "From Dekad",
+                                "dropdown": "dekads",
+                                "type": "select",
+                                "keyName": "dekad",
+                                "keyID": "dekad"
+                              },
+                              {
+                                "source_key": "toDekad",
+                                "label": "To Dekad",
+                                "dropdown": "dekads",
+                                "type": "select",
+                                "keyName": "dekad",
+                                "keyID": "dekad"
+                              }
+                           ]
+                        },
+                        {
+                          "source_key": "weeks",
+                          "label": "Weeks",
+                          "api_route": "historic_yearly_windspeed",
+                          "payLoad": {"communeId":null,"dataSrcId":null,"fromMonth":0,"toMonth":0,"fromDekad":0,"toDekad":0,"fromWeek":0,"toWeek":0},
+                          "dataInputs":[
+                              {
+                                "source_key": "fromWeek",
+                                "label": "From Week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week"
+                              },
+                              {
+                                "source_key": "toWeek",
+                                "label": "To Week",
+                                "dropdown": "weeks",
+                                "type": "select",
+                                "keyName": "week"
+                              }
+                           ]
+                        }
+                      ]
+                    }
+                  ] 
+                }
+              ]
+            }
+          ]
+        },
+        "soil": {
+          "active": true,
+          "section_id": 3,
+          "label": "Soil",
+          "selected": "false",
+          "multiple": true,          
+          "dataSources": [ 
+            { 
+              "source_key": "isric",
+              "label": "ISRIC",
+              "selected": false,
+              "api_route": "isric_soils",
+              "payLoad": {
+                "country": "Senegal",
+                "admin_level": "commune",
+                "admin_level_id": null,
+                "layers": []
+              },
+              "dataInputs":[
+                  { "label": "All Classes","source_key": "all", "selected": true,"type": "checkbox"},
+                  { "label": "Acrisols", "source_key": "acrisols","selected": true,"type": "checkbox" },
+                  { "label": "Arenosols", "source_key": "arenosols","selected": true,"type": "checkbox" },
+                  { "label": "Cambisols","source_key": "cambisols", "selected": true,"type": "checkbox" },
+                  { "label": "Fluvisols", "source_key": "fluvisols","selected": true,"type": "checkbox" },
+                  { "label": "Gleysols", "source_key": "gleysols","selected": true,"type": "checkbox" },
+                  { "label": "Leptosols", "source_key": "leptosols","selected": true,"type": "checkbox" },
+                  { "label": "Lixisols","source_key": "lixisols", "selected": true,"type": "checkbox" },
+                  { "label": "Regosols", "source_key": "regosols","selected": true,"type": "checkbox" },
+                  { "label": "Solonchaks","source_key": "solonchaks", "selected": true,"type": "checkbox" },
+                  { "label": "Solonetz","source_key": "solonetz", "selected": true,"type": "checkbox" },
+                  { "label": "Vertisols","source_key": "vertisols", "selected": true,"type": "checkbox" }
+                ] 
+            }            
+          ]
+        },
+        "liveStock": {
+          "active": true,
+          "section_id": 4,
+          "label": "LiveStock",
+          "selected": "false",
+          "dataSources": [
+            {
+              "label": "opendataforafrica",
+              "selected": false,
+              "api_route": "livestock"
+            }
+          ]
+        }
+      }
+  }
+  

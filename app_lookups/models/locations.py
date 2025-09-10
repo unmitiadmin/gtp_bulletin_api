@@ -1,6 +1,17 @@
 from django.db import models
 
 
+class LkpCountry(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    country = models.CharField(unique=True, max_length=256)
+    created_on = models.DateTimeField()
+    updated_on = models.DateTimeField(blank=True, null=True)
+    status = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'lkp_country'
+
 class LkpRegion(models.Model):
     id = models.BigAutoField(primary_key=True)
     region = models.CharField(max_length=128)
