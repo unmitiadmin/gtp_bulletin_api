@@ -14,7 +14,7 @@ def regions(request):
 @api_view(["GET"])
 def departments(request):
     region_id = request.GET.get("region_id")
-    queryset = LkpDepartment.objects.all()
+    queryset = LkpDepartment.objects.filter(region_id=region_id)
     if region_id: 
         queryset = queryset.filter(region_id=region_id)
     data = LkpDepartmentSerializer(queryset, many=True).data
@@ -25,7 +25,7 @@ def departments(request):
 def arrondissements(request):
     region_id = request.GET.get("region_id")
     department_id = request.GET.get("department_id")
-    queryset = LkpArrondissement.objects.all()
+    queryset = LkpArrondissement.objects.filter(region_id=region_id, department_id=department_id)
     if department_id: 
         queryset = queryset.filter(region_id=region_id, department_id=department_id)
     data = LkpArrondissementSerializer(queryset, many=True).data
@@ -38,7 +38,7 @@ def communes(request):
     region_id = request.GET.get("region_id")
     department_id = request.GET.get("department_id")
     arrondissement_id = request.GET.get("arrondissement_id")
-    queryset = LkpCommune.objects.all()
+    queryset = LkpCommune.objects.filter(region_id=region_id, department_id=department_id, arrondissement_id=arrondissement_id)
     if arrondissement_id:
         queryset = queryset.filter(
             region_id=region_id,
