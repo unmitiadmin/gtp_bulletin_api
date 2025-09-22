@@ -178,10 +178,11 @@ def get_temperature_forecast(**kwargs):
     try:
         if kwargs.get('data_src_table') == "5":
             # gfs
-            fields = (
-                f""" "tmax", "tmin" """ if admin_level == "commune"
-                else f""" AVG("tmax"), AVG("tmin") """
-            )
+            # fields = (
+            #     f""" "tmax", "tmin" """ if admin_level == "commune"
+            #     else f""" AVG("tmax"), AVG("tmin") """
+            # )
+            fields = f""" AVG("tmax"), AVG("tmin") """
             query = f"""
                 SELECT "valid_time", {fields}
                 FROM "senegal-gfs-data" WHERE TRUE  AND "{admin_level}_id"='{admin_level_id}'
@@ -190,6 +191,7 @@ def get_temperature_forecast(**kwargs):
                 GROUP BY "valid_time", "{admin_level}_id"
                 ORDER BY "valid_time"
             """
+            print(query)
             with connect(host=druid.get("host"), port=druid.get("port"), path=druid.get("path"), scheme=druid.get("scheme")) as connection:
                 query_result = pd.DataFrame(connection.execute(query), dtype=object).to_records()
                 result = gfs_temp(referred_date=todays_date, query_result=query_result)
@@ -209,10 +211,11 @@ def get_humidity_forecast(**kwargs):
     try:
         if kwargs.get('data_src_table') == "5":
             # gfs
-            fields = (
-                "relative_humidity_at_2m" if admin_level == "commune"
-                else f""" AVG("relative_humidity_at_2m") """
-            )
+            # fields = (
+            #     "relative_humidity_at_2m" if admin_level == "commune"
+            #     else f""" AVG("relative_humidity_at_2m") """
+            # )
+            fields = f""" AVG("relative_humidity_at_2m") """
             query = f"""
                 SELECT "valid_time", {fields}
                 FROM "senegal-gfs-data" WHERE TRUE  AND "{admin_level}_id"='{admin_level_id}' 
