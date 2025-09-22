@@ -57,26 +57,35 @@ def get_rainfall_forecast(**kwargs):
                 query_result = pd.DataFrame(connection.execute(query), dtype=object).to_records()
                 result = gfs_rf(referred_date=todays_date, query_result=query_result)
                 return {"status": 1, "data": result}
-        elif kwargs.get('datag_src_table') == "6":
+        elif kwargs.get('data_src_table') == "6":
             # anacim 3-day
-            # fields = (
-            #     "grid_rainfall" if admin_level == "commune"
-            #     else f"""AVG("grid_rainfall")"""
-            # )
             fields = f"""AVG("grid_rainfall")"""
             query = f"""
-                SELECT "__time", {fields} 
-                FROM "druid"."anacim-3-day-forecast-grid-data"
-                WHERE TRUE
-                AND "{admin_level}_id"='{admin_level_id}'
-                GROUP BY "{admin_level}_id", "__time"
-                ORDER BY "__time" DESC LIMIT 3
+                WITH latest_times AS (
+                    SELECT "__time"
+                    FROM "druid"."anacim-3-day-forecast-grid-data"
+                    WHERE "{admin_level}_id"='{admin_level_id}'
+                    GROUP BY "__time"
+                    ORDER BY "__time" DESC
+                    LIMIT 3
+                )
+                SELECT d."__time", {fields} AS avg_rainfall
+                FROM "druid"."anacim-3-day-forecast-grid-data" d
+                JOIN latest_times t ON d."__time" = t."__time"
+                WHERE d."{admin_level}_id"='{admin_level_id}'
+                GROUP BY d."__time"
+                ORDER BY d."__time" DESC
             """
-            print(query)
-            with connect(host=druid.get("host"), port=druid.get("port"), path=druid.get("path"), scheme=druid.get("scheme")) as connection:
+            with connect(
+                host=druid.get("host"),
+                port=druid.get("port"),
+                path=druid.get("path"),
+                scheme=druid.get("scheme"),
+            ) as connection:
                 query_result = pd.DataFrame(connection.execute(query), dtype=object).to_records()
                 result = rf_anacim(query_result=query_result)
                 return {"status": 1, "data": result}
+
         elif kwargs.get('data_src_table') == "10":
             # iri seasonal
             fields = (
