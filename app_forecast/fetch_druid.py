@@ -40,10 +40,11 @@ def get_rainfall_forecast(**kwargs):
     try:
         if kwargs.get('data_src_table') == "5":
             # gfs
-            fields = (
-                "total_precipitation" if admin_level == "commune"
-                else f"""AVG("total_precipitation")"""
-            )
+            # fields = (
+            #     "total_precipitation" if admin_level == "commune"
+            #     else f"""AVG("total_precipitation")"""
+            # )
+            fields = f"""AVG("total_precipitation")"""
             query = f"""
                 SELECT "valid_time", {fields}
                 FROM "druid"."senegal-gfs-data" WHERE TRUE
@@ -56,19 +57,22 @@ def get_rainfall_forecast(**kwargs):
                 query_result = pd.DataFrame(connection.execute(query), dtype=object).to_records()
                 result = gfs_rf(referred_date=todays_date, query_result=query_result)
                 return {"status": 1, "data": result}
-        elif kwargs.get('data_src_table') == "6":
+        elif kwargs.get('datag_src_table') == "6":
             # anacim 3-day
-            fields = (
-                "grid_rainfall" if admin_level == "commune"
-                else f"""AVG("grid_rainfall")"""
-            )
+            # fields = (
+            #     "grid_rainfall" if admin_level == "commune"
+            #     else f"""AVG("grid_rainfall")"""
+            # )
+            fields = f"""AVG("grid_rainfall")"""
             query = f"""
-                SELECT "__time", "grid_rainfall" 
+                SELECT "__time", {fields} 
                 FROM "druid"."anacim-3-day-forecast-grid-data"
                 WHERE TRUE
                 AND "{admin_level}_id"='{admin_level_id}'
+                GROUP BY "{admin_level}_id", "__time"
                 ORDER BY "__time" DESC LIMIT 3
             """
+            print(query)
             with connect(host=druid.get("host"), port=druid.get("port"), path=druid.get("path"), scheme=druid.get("scheme")) as connection:
                 query_result = pd.DataFrame(connection.execute(query), dtype=object).to_records()
                 result = rf_anacim(query_result=query_result)
