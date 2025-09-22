@@ -207,7 +207,6 @@ def get_temperature_forecast(**kwargs):
                 GROUP BY "valid_time", "{admin_level}_id"
                 ORDER BY "valid_time"
             """
-            print(query)
             with connect(host=druid.get("host"), port=druid.get("port"), path=druid.get("path"), scheme=druid.get("scheme")) as connection:
                 query_result = pd.DataFrame(connection.execute(query), dtype=object).to_records()
                 result = gfs_temp(referred_date=todays_date, query_result=query_result)
