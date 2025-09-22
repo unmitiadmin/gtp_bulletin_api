@@ -149,15 +149,18 @@ def get_rainfall_forecast(**kwargs):
                 "8": "ESRL_precipitation",
                 "9": "GEFSv12_precipitation"
             }
-            fields = (
-                f""" "{column[kwargs.get('data_src_table')]}" """ if admin_level == "commune"
-                else f""" AVG("{column[kwargs.get('data_src_table')]}") """
-            )
+            # fields = (
+            #     f""" "{column[kwargs.get('data_src_table')]}" """ if admin_level == "commune"
+            #     else f""" AVG("{column[kwargs.get('data_src_table')]}") """
+            # )
+            fields = f""" AVG("{column[kwargs.get('data_src_table')]}") """
             query = f"""
                 SELECT "forecast_period", {fields}
                 FROM "druid"."senegal-iri-subx-data"
-                WHERE "{admin_level}_id"='{admin_level_id}'
-                ORDER BY "__time" DESC LIMIT 4
+                WHERE TRUE 
+                AND "{admin_level}_id"='{admin_level_id}'
+                AND "__time"=(SELECT MAX("__time") FROM "druid"."senegal-iri-subx-data" WHERE "{admin_level}_id"='{admin_level_id}')
+                GROUP BY "{admin_level}_id", "forecast_period"
             """
             with connect(host=druid.get("host"), port=druid.get("port"), path=druid.get("path"), scheme=druid.get("scheme")) as connection:
                 query_result = pd.DataFrame(connection.execute(query), dtype=object).to_records()
